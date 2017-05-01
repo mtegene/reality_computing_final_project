@@ -1,0 +1,8 @@
+newmtl Material_0
+Ka 1.0000 1.0000 1.0000
+Kd 1.0000 1.0000 1.0000
+Ks 0.0000 0.0000 0.0000
+d 1
+Ns 0.0000
+illum 1
+map_Kd none_pano_blue_wall_area01.jpg
