@@ -3,8 +3,7 @@ AFRAME.registerComponent('mover', {
     //this.intial_pos = new THREE.Vector3();
     //this.previous_pos = new THREE.Vector3();
 
-    var socket = new WebSocket("https://glitch.com/edit/#!/rapid-fountain?path=server.js:72:31", "protocolOne");
-
+    var socket = new WebSocket("wss://rapid-fountain.glitch.me/");
     socket.onmessage = function (evt) {
       var msg = JSON.parse(evt.data);
 
