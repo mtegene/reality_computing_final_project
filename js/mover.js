@@ -7,7 +7,10 @@ AFRAME.registerComponent('mover', {
 
     socket.onmessage = function (evt) {
       var pos = JSON.parse(evt.data);
-      this.el.setAttribute("position", pos);
+      
+      this.el.setAttribute("position", pos.postion);
+      var theObject3D = document.querySelector('camparent').object3D;
+      theObject3D.quaternion = pos.quaternion
     };
   }//,
 
