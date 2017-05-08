@@ -1,16 +1,27 @@
 AFRAME.registerComponent('mover', {
   init: function() {//do nothing
-    this.intial_pos = new THREE.Vector3();
-    this.previous_pos = new THREE.Vector3();
+    //this.intial_pos = new THREE.Vector3();
+    //this.previous_pos = new THREE.Vector3();
 
-    var socket = new WebSocket("~~~~~~~~~~~~~", "protocolOne");
+    var socket = new WebSocket("https://glitch.com/edit/#!/rapid-fountain?path=server.js:72:31", "protocolOne");
 
     socket.onmessage = function (evt) {
-      var pos = JSON.parse(evt.data);
-      
-      this.el.setAttribute("position", pos.postion);
-      var theObject3D = document.querySelector('camparent').object3D;
-      theObject3D.quaternion = pos.quaternion
+      var msg = JSON.parse(evt.data);
+
+      if (msg[0] === "broadcast")
+      {
+        var pos = (msg[2]).postion;
+        var dir = (msg[2]).quaternion;
+        
+        this.el.setAttribute("position", {x: pos[0], y: pos[1], z: pos[2]});
+
+        var theObject3D = document.querySelector('#camparent').object3D;
+        theObject3D.quaternion = dir
+      }
+
+      //this.el.setAttribute("position", pos.postion);
+      //var theObject3D = document.querySelector('camparent').object3D;
+      //theObject3D.quaternion = pos.quaternion
     };
   }//,
 
