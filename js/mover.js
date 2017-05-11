@@ -2,6 +2,7 @@ AFRAME.registerComponent('mover', {
   init: function() {
 
     var socket = new WebSocket("wss://rapid-fountain.glitch.me/");
+
     socket.onmessage = function (evt) {
       var msg = JSON.parse(evt.data);
 
@@ -16,5 +17,7 @@ AFRAME.registerComponent('mover', {
         theObject3D.quaternion = dir
       }
     };
+
+    socket.send(JSON.stringify(["register", "vive"]));
   }
 });
