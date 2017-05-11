@@ -18,6 +18,6 @@ AFRAME.registerComponent('mover', {
       }
     };
 
-    socket.send(JSON.stringify(["register", "vive"]));
+    //socket.send(JSON.stringify(["register", "vive"]));
   }
 });
